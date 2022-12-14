@@ -9,3 +9,14 @@ Feature: Kahoot login
     Examples:
       | username       | password |
       | Mjessimagic    | 1234567  |
+
+  Scenario Outline: TC02 - Test API
+    When the user calls GET/service with username <username> and password <password>
+    Then the servercode <servercode> is returned
+
+    Examples:
+      | username       | password | servercode |
+      | Mjessimagic    | 1234567  | 200 |
+      | 9087           | 1234567  | 400 |
+      | Mjessimagic    | 1234567  | 404 |
+
